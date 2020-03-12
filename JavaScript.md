@@ -210,11 +210,26 @@
 
   ```js
   {
-      ...
+      declaracao_1;
+      declaracao_2;
+      .
+      .
+      .
+      declaracao_n;
   }
   ```
 
-  
+  ### Exemplo
+
+  ```js
+  var x = 1;
+  {
+      var x = 2;
+  }
+  console.log(x);
+  ```
+
+  - #### Este código exibe 2 pois a declação de var x antes do bloco.
 
 ## Condicionais
 
@@ -222,7 +237,17 @@
 
   - ### Executa um código alternativo, dependendo da situação;
 
-  - ### Uma forma comum de condicional é a instrução if... else.
+  - ### Uma forma comum de condicional é a instrução if... else. Declarada da seguinte maneira:
+
+    ```js
+    if (condicao) {
+        declaracao_1;
+    } else {
+        declaracao_2;
+    }
+    ```
+
+    - #### Onde **condicao** pode ser qualquer expressão que seja avaliada como verdadeira ou falso. Ex.:
 
     ```js
     var sorvete = 'chocolate';
@@ -238,6 +263,133 @@
   - ### Se a comparação retorna true, o primeiro bloco é executado;
 
   - ### Se for falsa, o primeiro bloco é ignorado e o segundo executado.
+
+  - ### Tambem é possível combinar declarações utilizando else if parar obter várias condições testadas em sequência. Ex.:
+
+    ```js
+    if (condicao) {
+        declaracao_1;
+    } else if (condicao_2) {
+        declaracao_2;
+    } else if (condicao_n) {
+        declaracao_n;
+    } else {
+        declaracao_final;
+    }
+    ```
+
+- ### Aqui conseguimos vizualizar claramente a declaração de blocos. Em geral, é uma boa prática prática, especialmente ao aninhar if's:
+
+  ```js
+  if(condicao) {
+      declaracao_1_executada_se_condicao_for_verdadeira;
+      declaracao_2_executada_se_condicao_for_verdadeira;
+  } else {
+  	declaracao_3_executada_se_condicao_for_falsa;
+      declaracao_4_executada_se_condicao_for_falsa;   
+  }
+  ```
+
+  - ### Recomenda-se não utilizar atribuições simples em uma expressão condicional porque o símbolo de atribuição poderia ser confundido com o de igualdade. Por exemplo, não utilize o seguinte código:
+
+    ```js
+    if (x = y) {
+        /* faça a coisa certa disgraçadão */
+    }
+    ```
+
+  - ### Caso tenha que utilizar uma atribuição em uma expressão condicional, uma prática comum é colocar parênteses adicionais em volta da atribuição. Por exemplo:
+
+    ```js
+    if((x = y)) {
+        /*Faça a coisa certa*/
+    }
+    ```
+
+    ### Valores avaliados como falsos
+
+    - #### Os seguintes valores são avaliados como falsos:
+
+      - ##### false;
+
+      - ##### undefined;
+
+      - ##### null;
+
+      - ##### 0;
+
+      - ##### NaN;
+
+      - ##### string vazia("");
+
+    - #### Todos os outros valores, incluindo todos os objetos, são avaliados como verdadeiros quando passados para uma declaração condicional.
+
+    ## Declaração switch
+
+    - ### Permite que um programa avalie uma expressão e tente associar a um caso(case).
+
+    - ### Se o correspondente é encontrado, a operação associada é executada.
+
+    - ### Vejamos uma declaração switch:
+
+      ```js
+      switch (expressao) {
+          case rotulo_1:
+              declaracoes_1
+              [break;]
+          case rotulo_2:
+              declaracoes_2
+              [break;]
+          ...
+          default:
+          	declaracoes_padrao
+              [break;]
+      }
+      ```
+
+      - #### O programa primeiro procura um case com o rótulo correspondente;
+
+      - #### Se nenhum correspondente é encontrado, o programa procura pela clausula opcional default;
+
+      - #### A instrução break associada a cada clausula, garante que o programa sairá do switch assim que a correspondente for executada;
+
+      ### Exemplo
+
+      - #### No exemplo a seguir, se tipofruta for avaliada como "Banana", o programa faz a correspodência do valor com case "Banana" e executa a declaração associada. Quando o break é encontrado o programa termina.
+
+        ```js
+        switch (tipofruta) {
+            case "Laranja":
+                console.log("O quilo da laranja está R$0,59.<br>");
+                break;
+            case "Maçã":
+                console.log("O quilo da maçã está R$0,32.<br>");
+                break;
+            case "Banana":
+                console.log("O quilo da banana está R$0,48.<br>");
+                break;
+            case "Cereja":
+                console.log("O quilo da cereja está R$3,00.<br>");
+                break;
+            case "Manga":
+                console.log("O quilo da manga está R$0,56.<br>");
+                break;
+            case "Mamão":
+                console.log("O quilo do mamão está R$2,23.<br>");
+                break;
+            default:
+                console.log("Desculpe, não temos " + tipofruta + ".<br>");
+        }
+        console.log("Gostaria de mais alguma coisa?<br>");
+        ```
+
+    ## Declaração e manipução de Error(Erros)
+
+    - ### Você pode chamar uma exceção usando a declaração **throw** e manipulá-la usando **try...catch**.
+
+      ### Tipos de exceções
+
+      - #### Praticamente...
 
 ## Loops
 
