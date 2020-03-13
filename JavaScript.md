@@ -1,3 +1,5 @@
+- Material disponível em: https://github.com/DevilAnseSenior/Introdu-JavaScript
+
 # JavaScript
 
 - ## Linguagem de programação interpretada e estruturada;
@@ -20,15 +22,33 @@
 
 - ## Para começar, veja como adicionar algum JS básico a sua página, criando um "olá mundo!".
 
-  1. ### Primeiro  crie um arquivo chamado main.js;
+  1. ### Primeiro  crie um arquivo chamado index.html e escreva o seguinte trecho de código:
   
-  2. ### Neste arquivo, escreva o seguinte trecho de código:
+     ```html
+     <html>
+         <head>
+             <!--Configurações iniciais-->
+             <title>Exemplo 1</title>
+         </head>
+         <body>
+             <!--Estrutura do site-->
+             
+             <script src="scripts/main.js"></script>
+         </body>
+     </html>
+     ```
+  
+     
+  
+  2. ### Nesta pasta crie uma pasta chamada scripts;
+  
+  3. ### Dentro da pasta crie um arquivo chamado main.js e escreva a instrução a seguir:
   
      ```js
      console.log('Olá mundo!!!');
      ```
   
-  3. ### Para executar o código, utilize a combinação de teclas CTRL + ALT + n;
+  4. ### Para executar o código, abra o navegador use o comando CTRL + o  e abra o arquivo index.js, na página principal abra as opções de desenvolvedor e verique a saída no console;
 - ## O que aconteceu?
 
   - ### Basicamente fizemos com que uma mensagem fosse impressa no console.
@@ -85,7 +105,7 @@
     var nome = 'Bob';
     ```
 
-  - ### Se quiser é possível fazer as duas operções na mesma linha:
+  - ### Se quiser é possível fazer as duas operações na mesma linha:
 
     ```js
     var genero = 'Masculino';
@@ -389,7 +409,162 @@
 
       ### Tipos de exceções
 
-      - #### Praticamente...
+      - #### Praticamente pode-se utilizar throw em qualquer objeto JS. Todavia, nem todos os objetos ativados throw são igualmente criados.
+      
+      ### Declaração throw
+      
+      - #### Use a declaração throw para lançar uma exceção. Quando lançada, devemos especificar a expressão que conterá o valor a ser lançado:
+      
+        ```js
+        throw expressão;
+        ```
+      
+      - #### É possivel lançar qualquer tipo de expressão. O código a seguir lança varias exceções de tipos diferentes:
+      
+        ```js
+        throw "Error2"; //tipo string
+        throw 42; //tipo numérico
+        throw true; //tipo booleano
+        throw {toString: function() { return "Eu dou um objeto"; } };
+        ```
+      
+        ##### Nota: É possivel especificar um objeto quando se lança uma expressão. É possível especificar essas propriedades de um objeto no bloco catch. O exemplo a seguir cria um objeto myUserException do tipo userException e o usa em uma declaração throw.
+      
+        ```js
+        // Criando um objeto do tipo UserException
+        function UserException(mensagem) {
+        	this.mensagem = mensagem;
+            this nome = "UserException";
+        }
+        
+        // Realiza a conversão da exceção para uma string adequada quando usada como uma string.
+        // (ex. pelo console erro)
+        UserException prototype.toString = function() {
+        	return this.name + ': "' + this.message + '"';
+        }
+        
+        //Cria uma instância de um tipo de objeto e lança ela
+        throw new UserException("Valor muito alto");
+        ```
+      
+      ### Declaração try...catch
+      
+      - #### A declaração try...catch com um bloco de declarações em try, e especifica uma ou mais respostas para uma exceção lançada. Se uma exceção é lançada, a declaração try...catch pegá-a.
+      
+      - #### O exemplo a seguir usa a declaração try...catch. O exemplo chama uma função que recupera o nome de um mês no array com base no valor passado para a função. Se o valor não corresponde ao numero de um mês (1-12), uma exceção é lançada com o valor "InvalidMonthNo" e as declarações no bloco catch define a váriavel monthName para unknown.
+      
+        ```js
+        function getMonthName(mo) {
+            mo = mo - 1; // Ajusta o número do mês para o índice do array (1 = Jan, 12 = Dez)
+            var months = ["Jan", "Fev", "Mar", "Abr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dez"];
+            if (months[mo]) {
+                return months[mo];
+            } else {
+                throw "InvalidMonthNo"; //lança uma palavra-chave aqui usada.
+            }
+        }
+        
+        try { // statements to try
+            monthName = getMonthName(myMonth); // função poderia lançar exceção
+        }
+        catch (e) {
+            monthName = "unknow";
+            logMyErrors(e); // passa a exceção para o manipulador de erro -> sua função local.
+        }
+        ```
+      
+      ### O bloco catch
+      
+      - #### Você pode usar o bloco catch para lidar com todas as exceções que podem ser geradas no bloco try.
+      
+        ```js
+        catch (catchID) {
+            declaracoes
+        }
+        ```
+      
+      - #### O bloco catch é especificado por um identificador, que contem a especificação dada pelo throw; Esse identificador contem informações da exceção lançada. O identificador funciona enquando o bloco catch está está em execução.
+      
+      - #### Por exemplo, o seguinte código lança uma exceção. Quando a exceção ocorre, o controle é transferido para o bloco catch.
+      
+        ```js
+        try {
+            throw "MyException"; //Lança uma exceção
+        }
+        catch(e) {
+        	// declarações de lidar com as exceções
+            logMyErrors(e); // passar a exceção para o manipulador de erro
+        }
+        ```
+      
+      ### O bloco finally
+      
+      - #### O finally contém instruções para executar após os blocos try e catch, mas antes das declarações seguinte a declaração try...catch. O bloco finally é executado com ou sem o lançamento de excessão. Se uma exceção é lançada, a declaração do bloco finally excuta, mesmo que nenhum catch seja processado.
+      
+        ```js
+        openMyFile();
+        try {
+            writeMyFile(theData); // Isso pode lançar um erro
+        } catch(e) {
+            handleError(e); // Se temos um erro temos que lidar com ele
+        } finally {
+            closeMyFile(); //Sempre feche o recurso
+        }
+        ```
+      
+      - #### Se o bloco finally retorna um valor, este valor se torna toda a entrada try-catch-finally, independente de quaisquer declarações:
+      
+        ```js
+        function f() {
+            try {
+                console.log(0);
+                throw "bogus";
+            } catch(e) {
+                console.log(1);
+                return true; // Essa declaração de retorno é suspensa
+                			 // até que o bloco finally seja concluído
+                console.log(2); // não executa
+            } finally {
+                console.log(3);
+                return false; // substitui o return anterior
+                console.log(4); // não executa
+            }
+            // "return false" é executado agora
+            console.log(5); // não executa
+        }
+        f(); // exibe 0, 1, 3; retorna false
+        ```
+      
+      - #### Substituições de valores de retorno pelom bloco finally támbem se aplica a exceções lançadas ou re-lançadas dentro do bloco catch:
+      
+        ```js
+        function f() {
+          try {
+            throw "bogus";
+          } catch(e) {
+            console.log('captura interior "falso"');
+            throw e; // essa instrução throw é suspensa até 
+                     // que o bloco finally seja concluído
+          } finally {
+            return false; // substitui "throw" anterior
+          }
+          // "return false" é executado agora
+        }
+        
+        try {
+          f();
+        } catch(e) {
+          // isto nunca é executado porque o throw dentro
+          // do catch é substituído
+          // pelo return no finally
+          console.log('captura exterior "falso"');
+        }
+        
+        // SAIDA
+        // captura interior "falso"
+        ```
+      
+      - #### Tambem é possível aninhar declarações try...catch.
 
 ## Loops
 
