@@ -566,21 +566,113 @@
       
       - #### Tambem é possível aninhar declarações try...catch.
 
-## Loops
+## Loops - Laços e iterações
 
-  - ### Permite que uma parte do código continue executando repetidademente, até que determinada condição seja satisfeita. Vamos testar o seguinte:
+  - ### Permite que uma parte do código continue executando repetidademente, até que determinada condição seja satisfeita.
 
-    ```js
-    for (var i = 1 ; i < 21; i++) {
-        console.log(i);
-    }
-    ```
+- ### Existem várias formas de repetição em JS,  mas eles na sua essência fazem a mesma coisa: repetem uma ação multiplas vezes(possível até repetir 0 vezes). Cada uma oferecem diferentes formas de iniciar e encerrar. Há situações onde é possível um problema utilizando um determinado tipo de laço do que outros.
 
-  - ### O que aconteceu? Os numeros de 1 a 20 foram exibidos no seu console. Isso acontece por causa do loop. Um loop for utiliza a inserção de três valores (argumentos):
+  - ### for
 
-    1. **Um valor inicial**: Nesse caso estamos iniciando a contagem com 1, mas pode ser qualquer numero da minha escolha;
-    2. **Uma condição de saída**: Aqui nos especificamos i < 21 - O loop irá continuar até que i não seja mais menor que 21.
-    3. **Incremento:** Especificado como i++. Significa "Adicione 1 à i".
+    - #### Um laço for é repetido até que a condição especifica seja falsa. A declação for é feita da seguinte maneira:
+
+      ```js
+      for([expressaoInicial]; [condicao]; [incremento]) {
+      	declaracoes.
+      }
+      ```
+
+    - ### Vejamos um exemplo prático onde temos um jogo onde você manda o seu personagem andar X passos em uma direção e Y em outra; por exemplo, a ideia "vá 5 passos para o leste" pode ser expressa em um laço dessa forma:
+
+      ```js
+      var passo;
+      for (passo = 0, passo < 5; passo++) {
+      	//Executa 5 vezes, com os valores de passsos de 0 a 4.
+          console.log('Ande um passo para o leste.');
+      }
+      ```
+
+    - ### Um loop for utiliza a inserção de três valores (argumentos):
+
+      1. **Um valor inicial**: Nesse caso estamos iniciando a contagem com 0, mas pode ser qualquer numero da minha escolha;
+      2. **Uma condição de saída**: Aqui nos especificamos passo < 5 - O loop irá continuar até que passo não seja mais menor que 5.
+      3. **Incremento:** Especificado como passo++. Significa "Adicione 1 ao passo".
+    
+  - ### do... while
+  
+    - #### Repetirá até que a condição especifica seja falsa.
+  
+      ```js
+      do {
+          declaracao_1;
+          declaracao_2;
+          declaracao_3;
+      } while(condicao);
+      ```
+  
+    - #### Será executada uma vez antes da condição ser verificada. Caso a condição seja verdadeira, então o laço será executado novamente. Ao final de cada execução, a condicao é verificada. Quando for falsa a execução é encerrada. Exemplo:
+  
+      - ##### A seguir o laço é executado pelo menos uma vez e irá executar até que i seja menor que 5.
+  
+        ```js
+        do {
+            i += 1;
+            console.log(i);
+        } while(i < 5);
+        ```
+  
+  - ### while
+  
+    - #### Executa as intruções, desde que a condição especifica seja avaliada como verdadeira.
+  
+      ```js
+      while (condicao) {
+      	declaracao1;
+          declaracao2;
+          declaracao3;
+      }
+      ```
+  
+    - #### Se a condição se torna falsa ele segue em frente.
+  
+    - #### O teste ocorre antes do laço, assim o laço executará e testará a condição novamente. Ex:
+  
+      - ##### O while  a seguir executará enquando n for menor que três:
+  
+        ```js
+        n = 0;
+        x = 0;
+        while (n < 3) {
+            n++;
+            x += n;
+        }
+        ```
+  
+      - ##### A cada iteração, o laço incrementa n e adiciona este valor para x. Portanto, x e n recebem os seguintes valores:
+  
+        - Depois de executar pela primeira vez n = 1 e x = 1;
+        - Depois da segunda vez: n = 2 e x = 3;
+        - Depois da terceira vez: n = 3 e x = 6.
+  
+  - ### Instrução break
+  
+    - #### Usado para terminar laços e switchs;
+  
+    - #### Exemplo:
+  
+      - ##### O exemplo a seguir percorre os elementos de um Array até que ele encontre o indice do elemento que o possui um valor contido na variável valor:
+  
+        ```js
+        for(i = 0; i < a.length; i++) {
+        	if(a[i] == valor) {
+                break;
+            }
+        }
+        ```
+  
+  - ### Instrução continue
+  
+    - #### Pode ser usada para reiniciar uma instrução while, do-while ou for...
 
 ## Funções
 
