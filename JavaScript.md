@@ -102,120 +102,121 @@
   - ### Depois de declarar uma várivel, você pode dar um valor a ela:
 
     ```js
-    var nome = 'Bob';
-    ```
-
-  - ### Se quiser é possível fazer as duas operações na mesma linha:
-
+    var nome;
+    nome = 'Bob';
+  ```
+  
+- ### Se quiser é possível fazer as duas operações na mesma linha:
+  
     ```js
     var genero = 'Masculino';
-    ```
-
-  - ### Você pode retornar o valor chamando a váriavel pelo nome:
-
+  ```
+  
+- ### Você pode retornar o valor chamando a váriavel pelo nome:
+  
     ```js
     nome;
-    ```
-
-  - ### Depois de dar um valor a variável, tambem é possível mudá-lo:
-
+  ```
+  
+- ### Depois de dar um valor a variável, tambem é possível mudá-lo:
+  
     ```js
     var nome = 'Bob';
     nome = 'Steve';
-    ```
-
-    ### Note que as variáveis tem diferentes tipos de dados:
-
+  ```
+  
+  ### Note que as variáveis tem diferentes tipos de dados:
+  
     | Variáveis | Explicação                                                   | Exemplo                                                      |
     | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
     | String    | Sequência de texto é conhecida como string. Para mostrar que o valor é uma String, deve ser envolvida entre aspas. | var nome = 'Bob';                                            |
     | Number    | Um número. Números não tem aspas.                            | var num = 10;                                                |
     | Boolean   | Um valor verdadeiro ou falso.<br />As palavras 'true' e 'false' são reservadas em JS e não precisam de aspas. | var bool = true;                                             |
     | Array     | Uma estrutura que permite armazenar vários valores em uma única variável. | var pessoa = [1, 'Bob', 10]<br />Cada item pode ser acessado:<br />pessoa[0], pessoa[1], etc. |
-    | Object    | Basicamente, qualquer coisa. Em JS tudo é objeto e pode ser armazenado em uma váriavel. Tenha isso em mente enquanto aprende. | var titulo = document.querySelector('h1');                   |
-
-  - ### Variáveis são necessárias para qualquer coisa interessante na programação. Se os valores não podessem mudar, nada dinâmico seria criado.
-
-  - ### JavaScript é uma linguagem fortemente tipada. Isso significa que você não precisa especificar tipo de dado de uma variável quando declará-la;
-
-  - ### São convertidos automáticamente conforme a necessidade, por exemplo:
-
+  | Object    | Basicamente, qualquer coisa. Em JS tudo é objeto e pode ser armazenado em uma váriavel. Tenha isso em mente enquanto aprende. | var titulo = document.querySelector('h1');                   |
+  
+- ### Variáveis são necessárias para qualquer coisa interessante na programação. Se os valores não podessem mudar, nada dinâmico seria criado.
+  
+- ### JavaScript é uma linguagem fortemente tipada. Isso significa que você não precisa especificar tipo de dado de uma variável quando declará-la;
+  
+- ### São convertidos automáticamente conforme a necessidade, por exemplo:
+  
     ```js
     var answer = 42;
-    ```
-
-  - ### E depois, posso atribuir uma string para a mesma variável, por exemplo:
-
+  ```
+  
+- ### E depois, posso atribuir uma string para a mesma variável, por exemplo:
+  
     ```js
     answer = "Obrigado pelos peixes...";
-    ```
-
-  ## Escopo de váriavel
-
-  - ### Quando uma variavel é declarada fora de qualquer função, ela é chamada de **variável global**;
-
-  - ### Quando declarada dentro de uma função, é considerada **variável local**.
-
-  ## Comentários
-
-  - ### É possível colocar comentários em códigos JS:
-
+  ```
+  
+## Escopo de váriavel
+  
+- ### Quando uma variavel é declarada fora de qualquer função, ela é chamada de **variável global**;
+  
+- ### Quando declarada dentro de uma função, é considerada **variável local**.
+  
+## Comentários
+  
+- ### É possível colocar comentários em códigos JS:
+  
     ```js
     /*
     	Tudo no meio é um comentário.
     */
-    ```
-
-  - ### Se o seu comentário não tiver apenas uma linha, coloque dessa maneira:
-
+  ```
+  
+- ### Se o seu comentário não tiver apenas uma linha, coloque dessa maneira:
+  
     ```js
     // Isto é um comentário
-    ```
-
-  ## Operadores
-
-  - ### Simbolo matemática que produz um resultado baseado em dois valores;
-
-  - ### Vejamos alguns deles:
-
+  ```
+  
+## Operadores
+  
+- ### Simbolo matemática que produz um resultado baseado em dois valores;
+  
+- ### Vejamos alguns deles:
+  
     | Operador                       | Explicação                                                   | Simbolo(s) | Exemplo                                                      |
     | ------------------------------ | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ |
     | adição/concatenação            | Usado para somar dois numeros ou juntar duas strings         | +          | 6 + 9;<br />"Olá " + "Mundo!"                                |
     | subtrair, multiplicar, dividir | Fazem exatamente o que você espera que eles façam na matemática básica. | -, *, /    | 9 - 3;<br />8 * 2;<br />9 / 3;                               |
     | operador de atribuição         | Já vimos, ela associa um valor a uma váriavel.               | =          | var nome = 'Bob';                                            |
     | operador de igualdade          | Faz um teste para ver se dois valores são iguais um ao outro, retornando um resultado true/false (booleano) | ===        | var numero = 3;<br />numero === 4;                           |
-    | negação, não igual(diferente)  | Retorna o valor lógico oposto do sinal; transforma um true em false, etc. Quando usado junto com o operador de igualdade, o operador de negação testa se os valores são diferentes. | !, !==     | "Não igual" dá basicamente o mesmo resultado da sintaxe diferente. Aqui estamos testando "É  numero NÃO é igual a 3". Isso  retorna false porque numero É igual a 3.<br />var numero = 3;<br />numero !== 3; |
-
-  - ### Há vários outros operadores para explorar, mas por enquanto esse são suficientes.
-
-  - ### Em expressões envolvendo valores numérico e string com o operador +, JavaScript converte valores numéricos  para string. Ex.:
-
+  | negação, não igual(diferente)  | Retorna o valor lógico oposto do sinal; transforma um true em false, etc. Quando usado junto com o operador de igualdade, o operador de negação testa se os valores são diferentes. | !, !==     | "Não igual" dá basicamente o mesmo resultado da sintaxe diferente. Aqui estamos testando "É  numero NÃO é igual a 3". Isso  retorna false porque numero É igual a 3.<br />var numero = 3;<br />numero !== 3; |
+  
+- ### Há vários outros operadores para explorar, mas por enquanto esse são suficientes.
+  
+- ### Em expressões envolvendo valores numérico e string com o operador +, JavaScript converte valores numéricos  para string. Ex.:
+  
     ```js
     x = "A resposta é " + 42;
     y = 42 + " é a resposta.";
-    ```
-
-  - ### Nas declarações envolvendo outros operdores, JS não converte em valores numéricos para string. Ex.:
-
+  ```
+  
+- ### Nas declarações envolvendo outros operdores, JS não converte em valores numéricos para string. Ex.:
+  
     ```js
     "37" - 7;
     "37" + 7;
-    ```
-
-  ## Convertendo strings para números
-
-  - ### No caso de um valor que representa um número está armazenado na memória como uma string, existem métodos para conversão.
-
-    - #### parseInt()
-
-      - ##### Irá retornar apenas números inteiros, uso restrito para casas decimais.
-
-    - #### parseFloat()
-
-      - ##### Irá retornar um número real, restrito a números sem parte decimal.
-
-    - ##### Um método alternativo de conversão de um número em forma de string é com o operador + (operador soma):
-
+  ```
+  
+## Convertendo strings para números
+  
+- ### No caso de um valor que representa um número está armazenado na memória como uma string, existem métodos para conversão.
+  
+  - #### parseInt()
+  
+    - ##### Irá retornar apenas números inteiros, uso restrito para casas decimais.
+  
+  - #### parseFloat()
+  
+    - ##### Irá retornar um número real, restrito a números sem parte decimal.
+  
+  - ##### Um método alternativo de conversão de um número em forma de string é com o operador + (operador soma):
+  
       ```js
       "1.1" + "1.1" = "1.11.1"
       (+"1.1") + (+"1.1") = 2.2
