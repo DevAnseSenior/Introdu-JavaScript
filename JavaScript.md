@@ -104,7 +104,7 @@
     ```js
     var nome;
     nome = 'Bob';
-  ```
+    ```
   
 - ### Se quiser é possível fazer as duas operações na mesma linha:
   
@@ -119,22 +119,30 @@
   ```
   
 - ### Depois de dar um valor a variável, tambem é possível mudá-lo:
-  
-    ```js
-    var nome = 'Bob';
-    nome = 'Steve';
+
+  ```js
+  var nome = 'Bob';
+  nome = 'Steve';
   ```
-  
+
+- ### Para uma entrada dinâmica de dados (através do teclado), usamos o comando prompt:
+
+  ```js
+  var fruta = prompt("Informe a fruta desejada: ");
+  ```
+
+  - #### Nesse caso a variável fruta, receberá o conteudo digitado pelo usuário.
+
   ### Note que as variáveis tem diferentes tipos de dados:
-  
-    | Variáveis | Explicação                                                   | Exemplo                                                      |
-    | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-    | String    | Sequência de texto é conhecida como string. Para mostrar que o valor é uma String, deve ser envolvida entre aspas. | var nome = 'Bob';                                            |
-    | Number    | Um número. Números não tem aspas.                            | var num = 10;                                                |
-    | Boolean   | Um valor verdadeiro ou falso.<br />As palavras 'true' e 'false' são reservadas em JS e não precisam de aspas. | var bool = true;                                             |
-    | Array     | Uma estrutura que permite armazenar vários valores em uma única variável. | var pessoa = [1, 'Bob', 10]<br />Cada item pode ser acessado:<br />pessoa[0], pessoa[1], etc. |
-  | Object    | Basicamente, qualquer coisa. Em JS tudo é objeto e pode ser armazenado em uma váriavel. Tenha isso em mente enquanto aprende. | var titulo = document.querySelector('h1');                   |
-  
+
+| Variáveis | Explicação                                                   | Exemplo                                                      |
+| --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| String    | Sequência de texto é conhecida como string. Para mostrar que o valor é uma String, deve ser envolvida entre aspas. | var nome = 'Bob';                                            |
+| Number    | Um número. Números não tem aspas.                            | var num = 10;                                                |
+| Boolean   | Um valor verdadeiro ou falso.<br />As palavras 'true' e 'false' são reservadas em JS e não precisam de aspas. | var bool = true;                                             |
+| Array     | Uma estrutura que permite armazenar vários valores em uma única variável. | var pessoa = [1, 'Bob', 10]<br />Cada item pode ser acessado:<br />pessoa[0], pessoa[1], etc. |
+| Object    | Basicamente, qualquer coisa. Em JS tudo é objeto e pode ser armazenado em uma váriavel. Tenha isso em mente enquanto aprende. | var titulo = document.querySelector('h1');                   |
+
 - ### Variáveis são necessárias para qualquer coisa interessante na programação. Se os valores não podessem mudar, nada dinâmico seria criado.
   
 - ### JavaScript é uma linguagem fortemente tipada. Isso significa que você não precisa especificar tipo de dado de uma variável quando declará-la;
@@ -152,13 +160,13 @@
   ```
   
 ## Escopo de váriavel
-  
+
 - ### Quando uma variavel é declarada fora de qualquer função, ela é chamada de **variável global**;
   
 - ### Quando declarada dentro de uma função, é considerada **variável local**.
   
 ## Comentários
-  
+
 - ### É possível colocar comentários em códigos JS:
   
     ```js
@@ -174,7 +182,7 @@
   ```
   
 ## Operadores
-  
+
 - ### Simbolo matemática que produz um resultado baseado em dois valores;
   
 - ### Vejamos alguns deles:
@@ -204,7 +212,7 @@
   ```
   
 ## Convertendo strings para números
-  
+
 - ### No caso de um valor que representa um número está armazenado na memória como uma string, existem métodos para conversão.
   
   - #### parseInt()
