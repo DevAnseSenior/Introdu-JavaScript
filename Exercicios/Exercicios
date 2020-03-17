@@ -1,0 +1,8 @@
+1 - Construa um algoritmo que informados um numero inteiro,  imprima o seu sucessor e o seu antecessor.
+
+2 - Construa um algoritmo que entre quatro números e imprima a média sabendo que os pesos desta média são:. Sabendo-se que a média é: (a+b+c+d)/4
+
+3 -  Construa um algoritmo que, sabendo-se que 100kw de energia custa 1/7 do salário mínimo, sendo o mesmo dado de entrada, bem como a quantidade de kw/hora gasta por uma residência, imprima o: 
+a) valor em reais de cada kw/hora; 
+b) valor em reais a ser pago; 
+c) o novo valor a ser pago pela residência com o desconto de 10%.
