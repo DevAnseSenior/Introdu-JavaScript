@@ -175,7 +175,7 @@
     */
   ```
   
-- ### Se o seu comentário não tiver apenas uma linha, coloque dessa maneira:
+- ### Se o seu comentário tiver apenas uma linha, coloque dessa maneira:
   
     ```js
     // Isto é um comentário
@@ -192,7 +192,7 @@
     | adição/concatenação            | Usado para somar dois numeros ou juntar duas strings         | +          | 6 + 9;<br />"Olá " + "Mundo!"                                |
     | subtrair, multiplicar, dividir | Fazem exatamente o que você espera que eles façam na matemática básica. | -, *, /    | 9 - 3;<br />8 * 2;<br />9 / 3;                               |
     | operador de atribuição         | Já vimos, ela associa um valor a uma váriavel.               | =          | var nome = 'Bob';                                            |
-    | operador de igualdade          | Faz um teste para ver se dois valores são iguais um ao outro, retornando um resultado true/false (booleano) | ===        | var numero = 3;<br />numero === 4;                           |
+    | operador de igualdade          | Faz um teste para ver se dois valores são iguais, retornando um resultado true/false (booleano) | ===        | var numero = 3;<br />numero === 4;                           |
   | negação, não igual(diferente)  | Retorna o valor lógico oposto do sinal; transforma um true em false, etc. Quando usado junto com o operador de igualdade, o operador de negação testa se os valores são diferentes. | !, !==     | "Não igual" dá basicamente o mesmo resultado da sintaxe diferente. Aqui estamos testando "É  numero NÃO é igual a 3". Isso  retorna false porque numero É igual a 3.<br />var numero = 3;<br />numero !== 3; |
   
 - ### Há vários outros operadores para explorar, mas por enquanto esse são suficientes.
@@ -221,7 +221,7 @@
   
   - #### parseFloat()
   
-    - ##### Irá retornar um número real, restrito a números sem parte decimal.
+    - ##### Irá retornar um número real, restrito a números com parte decimal.
   
   - ##### Um método alternativo de conversão de um número em forma de string é com o operador + (operador soma):
   
@@ -608,9 +608,9 @@
       3. **Incremento:** Especificado como passo++. Significa "Adicione 1 ao passo".
     
   - ### do... while
-  
+
     - #### Repetirá até que a condição especifica seja falsa.
-  
+
       ```js
       do {
           declaracao_1;
@@ -618,22 +618,22 @@
           declaracao_3;
       } while(condicao);
       ```
-  
+
     - #### Será executada uma vez antes da condição ser verificada. Caso a condição seja verdadeira, então o laço será executado novamente. Ao final de cada execução, a condicao é verificada. Quando for falsa a execução é encerrada. Exemplo:
-  
+
       - ##### A seguir o laço é executado pelo menos uma vez e irá executar até que i seja menor que 5.
-  
+
         ```js
         do {
             i += 1;
             console.log(i);
         } while(i < 5);
         ```
-  
+
   - ### while
-  
+
     - #### Executa as intruções, desde que a condição especifica seja avaliada como verdadeira.
-  
+
       ```js
       while (condicao) {
       	declaracao1;
@@ -641,13 +641,13 @@
           declaracao3;
       }
       ```
-  
+
     - #### Se a condição se torna falsa ele segue em frente.
-  
+
     - #### O teste ocorre antes do laço, assim o laço executará e testará a condição novamente. Ex:
-  
+
       - ##### O while  a seguir executará enquando n for menor que três:
-  
+
         ```js
         n = 0;
         x = 0;
@@ -656,21 +656,21 @@
             x += n;
         }
         ```
-  
+
       - ##### A cada iteração, o laço incrementa n e adiciona este valor para x. Portanto, x e n recebem os seguintes valores:
-  
+
         - Depois de executar pela primeira vez n = 1 e x = 1;
         - Depois da segunda vez: n = 2 e x = 3;
         - Depois da terceira vez: n = 3 e x = 6.
-  
+
   - ### Instrução break
-  
+
     - #### Usado para terminar laços e switchs;
-  
+
     - #### Exemplo:
-  
+
       - ##### O exemplo a seguir percorre os elementos de um Array até que ele encontre o indice do elemento que o possui um valor contido na variável valor:
-  
+
         ```js
         for(i = 0; i < a.length; i++) {
         	if(a[i] == valor) {
@@ -678,10 +678,54 @@
             }
         }
         ```
-  
+
   - ### Instrução continue
-  
-    - #### Pode ser usada para reiniciar uma instrução while, do-while ou for...
+
+    - #### Pode ser usada para reiniciar uma instrução while, do-while ou for e continuará a execução apartir da próxima iteração.
+    
+    - ##### Ao contrário da instrução  break, continur não encerra a execução do laço. Em while, ele voltara pra a condição. Em for, ele pulará para a expressão de incrementação.
+    
+    - ##### Exemplo:
+    
+      - O exemplo a seguir mostra um laço while utilizando continue que executará quando o valor de i for igual a 3. Desta forma, n recebe os valores um, três e doze.
+    
+        ```js
+        var i = 0;
+        var n = 0;
+        while(i < 5) {
+            i++;
+            if (i==3) {
+               continue; 
+            }
+            n += i;
+        }
+        ```
+    
+  - ### Instrução for...in
+
+    - #### Executa iterações apartir de uma variável especifica;
+
+    - #### Percorre todas as propriedades de um objeto;
+
+    - ### Para cada propriedade distinta, o JS executará uma iteração.
+
+      ```js
+      for(variavel in objeto) {
+      	declaracoes;
+      }
+      ```
+
+  - ### Instrução for...of
+
+    - #### Cria um laço com objetos interativos((incluindo, Array, Map, Set, assim por conseguinte)), executando uma iteração para o valor de cada propriedade distinta.
+
+      ```js
+      for(variavel of objeto) {
+          declaracoes;
+      }
+      ```
+
+      
 
 ## Funções
 
