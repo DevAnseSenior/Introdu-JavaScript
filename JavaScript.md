@@ -756,15 +756,114 @@
     }
     ```
 
-  - ### Tente executar essa função no console e teste com vários argumentos. Ex.:
+- ### A definição de uma função(também chamada de declaração) consite no uso da palavra chave function, seguida por:
 
-    ```js
-    Próxima 
-    mutiplicacao(4,7);
-    mutiplicacao(20,20);
-    mutiplicacao(0.5,3);
-    ```
+  - #### Nome da função;
 
-    ##### **Nota:** A instrução return diz ao navegador que retorne a variável resultado da função. Isso é necessário pois, variáveis definidas dentro de funções só estão disponíveis dentro de funções.
+  - #### Lista de argumentos  da função, entre parênteses e separado por vírgulas;
 
-    
+  - #### Declarações JS que definem a função entre chaves { }.
+
+- ### Por exemplo, a função *multiplicacao* recebe dois argumentos (num1, num2). A função consiste em executar um calculo através da variável *resultado*. A instrução *return* especifica o valor retornado por essa função.
+
+- ### A definição de uma função não a executa. Definir a função é simplismente nomear a função e especificar o que fazer quando a função é chamada. Chamar a função executa realmente as ações especificadas com os parâmetros indicados. Por exemplo, tente executar essa função no console e teste com vários argumentos. Ex.:
+
+  ```js
+  mutiplicacao(4,7);
+  mutiplicacao(20,20);
+  mutiplicacao(0.5,3);
+  ```
+
+##### **Nota:** A instrução return diz ao navegador que retorne a variável resultado da função. Isso é necessário pois, variáveis definidas dentro de funções só estão disponíveis dentro de funções.
+
+- ### Funções devem estar no escopo quando são chamadas, mas a declaração de uma função pode ser puxada para o topo (aparecem abaixo da chamada no código).
+
+- ### O escopo de uma função é a função na qual ela é declarada, ou todo o programa se ela é declarada no nível superior.
+
+##### **Nota:** Isso funciona apenas quando usamos a definição padrão de função.
+
+- ### Para parâmetros primitivos (como um número) são passados para funções por valor; o valor é passado para a função, mas se a função altera o valor do parâmetro, esta mudança não reflete globalmente ou na função chamada.
+
+- ### Váriaveis definidas no interior de uma função não podem ser acessadas de nenhum lugar fora dela.
+
+- ### Mas, uma função pode acessar todas as váriaveis e funções criadas fora de escopo, ou seja, funções no ambito global podem acessar todas as váriaveis, enquanto uma função criada dentro de outra pode acessar os dados da sua função hospedeira.
+
+  ```js
+  // Seguintes váriaveis definidas no escopo global
+  var num1 = 20,
+      num2 = 3,
+      nome = "Chamahk";
+  
+  // Função definida no escopo global
+  function multiplica() {
+      return num1 * num2;
+  }
+  
+  multiplica(); // Retorna 60
+  
+  // Um exemplo de função aninhada
+  function getScore() {
+      var num1 = 2,
+          num2 = 3;
+      
+      function add() {
+          return nome + " scored " + (num1 + num2);
+      }
+      
+      return add();
+  }
+  
+  getScore(); // Retorna "Chamhk scored 5"
+  ```
+
+  
+
+## Expressão de função
+
+- ### Funções tambem podem ser criadas por uma expressão de função. Tal função pode ser anônima; não precisa ter um nome.
+
+  ```js
+  var square = function(numero) { return numero * numero };
+  var x = square(4) //x recebe o valor 16
+  ```
+
+- ### No entanto um nome pode ser fornecido com uma expressão de função e ṕode ser utilizado no interior da função para se referir a si mesma, ou em um debugger para identificar a função stack traces:
+
+  ```js
+  var fatorial = function fac(n) { return n < 2 ? 1 : n * fac*(n-1) };
+  
+  console.log(fatorial(3));
+  ```
+
+- ### As expressões de funções são convenientes quando precisamos passala como argumento para outra função. O exemplo a seguir mostra uma função map sendo definida e, em seguida, chamada com uma função anônima como seu primeiro parâmetro:
+
+  ```js
+  function map(f,a) {
+      var result = [];
+      var i;
+      for(i = 0; i != a.length; i++)
+          result[i] = f(a[i]);
+      return result;
+  }
+  ```
+
+- ### O código a seguir:
+
+  ```js
+  map(function(x) {return x * x * x}, [0, 1, 2, 5, 10]);
+  ```
+
+- ### Deve retornar [0, 1, 8, 125, 1000].
+
+- ### Em JS, uma função pode ser definida com base numa condição. Por exemplo, a seguinte definição de função define minhaFuncao somente se num é igual a 0:
+
+  ```js
+  var minhaFuncao;
+  if (num == 0) {
+      minhaFuncao = function(objeto) {
+          objeto.make = "Toyota";
+      }
+  }
+  ```
+
+- ### Um *método* é uma função invocada por um objeto.
