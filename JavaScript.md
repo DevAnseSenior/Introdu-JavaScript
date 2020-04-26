@@ -867,3 +867,104 @@
   ```
 
 - ### Um *método* é uma função invocada por um objeto.
+
+## **Array**
+
+- ### Conjunto de valores ordenados que referenciado com um nome e um índice.
+
+- ### Por exemplo, podemos ter um array chamado *emp* contendo nomes de funcionários com seus numeros indexados. Sendo assim, *emp[1]* poderia ser o funcionário número 1, *emp[2]* o funcionário numero 2 e assim por diante.
+
+- ### JS não possui um tipo array. No entanto temos um objeto predefinido *Array* com métodos específicos para trabalhar com eles. Possui uma propriedade para determinar o tamanho dele e outras propriedades para utilização com funções regulares.
+
+## Criando um array
+
+- ### As declarações a seguir criam arrays equivalentes:
+
+  ```js
+  var arr = new Array(elemento0, elemento1, ..., elementoN);
+  var arr = Array(elemento0, elemento1, ..., elementoN);
+  var arr = [elemento0, elemento1, ..., elementoN];
+  ```
+
+- ### *elemento0, elemento1, ..., elementoN* é uma lista de valores para os elementos do array. Quando esses valores são especificados, o array é inicializado com eles como elementos deste array. A propriedade do comprimento do array é definida pelo número de argumentos.
+
+- ### A sintaxe utilizando colchete é chamado de "array literal" ou "inicializador de array". É uma abreviação de outras formas de criação array e é a forma preferida de criação.
+
+- ### Para criar um array com tamanho diferente de zero, mas sem nenhum item, qualquer dos esquemas abaixo pode ser utilizado:
+
+  ```js
+  var arr = new Array(comprimentoDoArray);
+  var arr = Array(comprimentoDoArray);
+  
+  // Estes produzem exatamente o mesmo efeito
+  var arr = [];
+arr.lenght = comprimentoDoArray;
+  ```
+  
+  ##### **Nota:** No código acima, *comprimentoDoArray* deve ser um *número*. De outra maneira, um array com um unico elemento(o valor passado) será criado. Chamar arr.lenght retornará *comprimentoDoArray*, mas o array na verdade, contém elementos vazios(undefined). Executar um loop *for...in* no array, não retorna nenhum dos elementos do array.
+  
+- ### Se você deseja inicializar um array com um único elemento, e este elemento é um *número*, você precisa usar a sintáxe dos colchetes. Quando um único valor de *número* é passado para o construtor Array(), ou para uma função, ele é interpretado como um *comprimentoDoArray*, e não como um elemento único.
+
+  ```js
+  var arr = [42];		// Cria um array com apenas um elemento:
+  					// o número 42.
+  var arr = Array(42)	// Cria um array sem elementos
+  					// e arr.lenght é definido como 42; isso é
+  					// equivalente a:
+  var arr = [];
+  arr.length = 42;
+  ```
+
+## Povoando um array
+
+- ### Você pode povoar um array (inserir elementos) a um array atribuindo valores aos seus elementos. Por exemplo,
+
+  ```js
+  var emp = [];
+  emp[0] = 'Casey Jones';
+  emp[1] = 'Phil Lesh';
+  emp[2] = 'August West';
+  ```
+
+- ### Tambem é possivel povoar um array na criação:
+
+  ```js
+  var myArray = new Array('Olá', myVar, 3.14159);
+  var myArray = ['Manga', 'Maçã', 'Laranja'];
+  ```
+
+## Referenciando os elementos de um array
+
+- ### Você pode referenciar os elementos de um array através do uso de elementos numéricos ordinais. Por exemplo, suponha que você definiu o seguinte array:
+
+  ```js
+  var myArray = ['Vento', 'Chuva', 'Fogo'];
+  ```
+
+- ### Você então se refere ao primeiro elemento do array como *myArray[0]* e ao segundo elemento como *myArray[1]*. O indice dos elementos sempre começa com 0.
+
+## Iteração em arrays
+
+- ### Uma operação comum é a de iterar sobre os valores de um array, processando cada elemento de alguma maneira. A maneira mais simples para fazer isso é como segue:
+
+  ```js
+  var cores = ['vermelho', 'verde', 'azul'];
+  for (var i = 0; i < cores.lenght; i++) {
+      console.log(cores[i]);
+  }
+  ```
+
+- ### O método *forEach()* disponibiliza um outro jeito de iterar sobre um array:
+
+  ```js
+  var cores = ['vermelho', 'verde', 'azul'];
+  cores.forEach(function(cor) {
+      console.log(cor);
+  });
+  // vermelho
+  // verde
+  // azul
+  ```
+
+## Métodos dos arrays
+
