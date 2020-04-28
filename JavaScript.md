@@ -961,10 +961,133 @@ arr.lenght = comprimentoDoArray;
   cores.forEach(function(cor) {
       console.log(cor);
   });
-  // vermelho
-  // verde
-  // azul
   ```
 
 ## Métodos dos arrays
 
+- ### O objeto array possui os seguintes métodos:
+
+- #### *concat( )* une dois arrays e retorna um novo array.
+
+  ```js
+  var myArray = new Array('1', '2', '3');
+  myArray = myArray.concat('a', 'b', 'c');
+  ```
+
+- #### *join(delimitator = ' , ')* une todos os elementos de um array dentro de uma string.
+
+  ```js
+  var myArray = new Array('Vento', 'Chuva', 'Fogo');
+  var lista = myArray.join('-');
+  ```
+
+- #### *push( )* adiciona um ou mais elementos no fim de um array e retorna o comprimento resultante do array.
+
+  ```js
+  var myArray = new Array('1', '2');
+  myArray.push('3');
+  ```
+
+- #### *pop( )* remove o último elemento de um array e retorna esse elemento.
+
+  ```js
+  var myArray = new Array('1', '2', '3');
+  var ultimo = myArray.pop();
+  ```
+
+- #### *shift( )* remove o primeiro elemento de um array e retorna esse elemento.
+
+  ```js
+  var myArray = new Array('1', '2', '3');
+  var primeiro = myArray.shift();
+  ```
+
+- #### *unshift()* adiciona um ou mais elementos ao inicio do array e retorna o novo comprimento do array.
+
+  ```js
+  var myArray = new Array('1', '2', '3');
+  myArray.unshift('4', '5');
+  ```
+
+- #### *slice(start_index, upto_index)* extrai uma seção de um array e retorna um novo array.
+
+  ```js
+  var my array = new Array('a', 'b', 'c', 'd', 'e');
+  myArray = myArray.slice(1, 4);
+  ```
+
+- #### *splice(index, count_to_remove, add_Element1, add_Element2, ...)* remove elementos de um array e (opcionalmente) o substitui, e retorna os itens que foram removidos do array.
+
+  ```js
+  var myArray = new Array('1', '2', '3', '4', '5');
+  myArray.splice(1, 3, 'a', 'b', 'c', 'd');
+  ```
+
+- #### *reverse( )* transpõe (inverte) os elementos de um array: O primeiro elemento de um array se torna o último e o último se torna o primeiro, e  retorna uma referência para o array.
+
+  ```js
+  var myArray = new Array('1', '2', '3');
+  myArray.reverse();
+  ```
+
+- #### *sort( )* ordena os elementos de um array e retorna uma referência para o array.
+
+  ```js
+  var myArray = new Array('Neve', 'Chuva', 'Fogo');
+  myArray.sort();
+  ```
+
+- #### *indexOf(searchElement[, fromIndex])* busca *serchElement* no array e retorna o índice o índice da primeira ocorrência.
+
+  ```js
+  var a = ['a', 'b', 'a', 'b', 'a'];
+  console.log(a.indexOf('b'));
+  console.log(a.indexOf('b', 2));
+  console.log(a.indexOf('z'));
+  ```
+
+- #### *lastIndexOf(searchElement[, fromIndex])* funciona como *indexOf*, mas começa no fim e busca de trás para frente.
+
+  ```js
+  var a = ['a', 'b', 'c', 'd', 'a', 'b'];
+  console.log(a.lastIndexOf('b'));
+  console.log(a.lastIndexOf('b', 4));
+  console.log(a.lastIndexOf('z'));
+  ```
+
+- #### *forEach(callback[, thisObject])* executa um *callback* em cada item do array e retorna undefined.
+
+  ```js
+  var a = ['a', 'b', 'c'];
+  a.forEach(function(element) { console.log(elemento); });
+  ```
+
+- #### *map(callback[, thisObject])* retorna um novo array do valor retornado da execução do callback em cada item do array.
+
+  ```js
+  var a1 = ['a', 'b', 'c'];
+  var a2 = a1.map(function(item) { return item.toUpperCase(); });
+  console.log(a2);
+  ```
+
+- #### *filter(callback[, thisObject])* retorna um novo array contendo os itens verdadeiros ao executar o callback.
+
+  ```js
+  var a1 = ['a', 10, 'b', 20, 'c', 30];
+  var a2 = a1.filter(function(item) { return typeof item == 'number'; });
+  console.log(a2);
+  ```
+
+## **Arrays multidimencionais**
+
+- ### Arrays podem ser aninhados, significa que um array pode conter outro array como seu elemento. Usando essa característica dos arrays JS, arrays multidimensionais pode ser criados.
+
+  ```js
+  var a = new Array(4);
+  for(i = 0; i < 4; i++) {
+      a[i] = new Array(4);
+      for(j = 0; j < 4; j++) {
+          a[i][j] = '[' + i + ',' + j + ']';
+      }
+  }
+  ```
